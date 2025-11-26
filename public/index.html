@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CatGallery 😺</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff7ef;
+      text-align: center;
+      padding: 30px;
+    }
+    .cat-img {
+      width: 250px;
+      height: 250px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 3px solid #ff8f66;
+      margin-top: 15px;
+    }
+    button {
+      background: #ff8f66;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .feedback-box {
+      width: 300px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="font-size: 40px; color: red;">
+  Ласкаво просимо до ОНОВЛЕНОЇ CatGallery 😺
+</h1>
+
+
+  <button id="randomBtn">Показати випадкового котика</button>
+
+  <div id="catContainer">
+    <img id="catImg" class="cat-img" src="https://cataas.com/cat?width=300&height=300" alt="cat">
+  </div>
+
+  <h2>Ваш відгук про котика 🐾</h2>
+  <form id="feedbackForm">
+    <input id="username" type="text" placeholder="Ваше ім'я" required><br><br>
+    <textarea id="feedback" placeholder="Ваш відгук" required></textarea><br><br>
+    <button type="submit" id="sendBtn">Надіслати</button>
+  </form>
+
+  <p id="message" style="display:none; color:#c0392b; font-weight:bold;">
+    Дякуємо за відгук! 😻
+  </p>
+
+  <script>
+    document.getElementById('randomBtn').addEventListener('click', () => {
+      const size = 250 + Math.floor(Math.random() * 50);
+      document.getElementById('catImg').src = `https://cataas.com/cat?width=${size}&height=${size}`;
+    });
+
+    document.getElementById('feedbackForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('message').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
